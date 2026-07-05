@@ -126,7 +126,7 @@ return [
     'about' => 'I am a software engineer dedicated to building high-quality web and mobile application solutions. Alongside my professional web development career, I have been freelancing since 2022, specializing in mobile development and custom robotics projects. I graduated from Camarines Norte State College with a Bachelor of Science in Information Technology.',
 
     'experiences' => [
-        ['Internal Developer', 'Full-time', 'Octagon Express Group', 'https://octagonexpress.co/', 'Feb 2026 - Present'],
+        ['Internal Developer', 'Full-time', 'Octagon Express Group', 'https://octagonexpress.co/', 'Jan 2026 - Present'],
         ['Software Engineer', 'Full-time', 'Filzof Innovations', 'https://www.filzofinnovations.com/', 'Aug 2025 - Nov 2025'],
         ['BS Information Technology', '', 'Camarines Norte State College', 'https://cnsc.edu.ph/UCN/', '2021 - 2025'],
         ['Software Developer', 'Internship', 'Upward Solutions Inc.', 'https://www.facebook.com/AiUpwardSolutions', 'Feb 2025 - May 2025'],

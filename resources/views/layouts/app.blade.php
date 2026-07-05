@@ -29,5 +29,9 @@
         <footer class="flex justify-center py-6">
             <flux:text>&copy; {{ date('Y') }} JL Pile. All rights reserved.</flux:text>
         </footer>
+
+         @persist('toast')
+            <flux:toast position="top end"/>
+        @endpersist
     </body>
 </html>

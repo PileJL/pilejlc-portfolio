@@ -1,16 +1,25 @@
 <?php
 
 use Livewire\Component;
+use App\Models\PersonalInfo;
+use App\Models\Certificate;
 
 new class extends Component
 {
-    //
+    public ?PersonalInfo $personalInfo;
+    public $certificates;
+
+    public function mount()
+    {
+        $this->personalInfo = PersonalInfo::first();
+        $this->certificates = Certificate::all();
+    }
 };
 ?>
 
 <div class="w-full">
     {{-- header --}}
-    <x-header/>
+    <x-header :personalInfo="$personalInfo"/>
 
     {{-- Separator --}}
     <flux:separator variant="subtle" class="mt-7" />
@@ -20,7 +29,7 @@ new class extends Component
         {{-- left side --}}
         <div class="flex flex-col gap-2 w-full md:w-3/5">
             {{-- about --}}
-            <x-about/>
+            <x-about :about="$personalInfo->about"/>
             {{-- teck stack --}}
             <x-tech-stack/>
             {{-- recent projects --}}
@@ -33,7 +42,7 @@ new class extends Component
             {{-- experience --}}
             <x-experience/>
             {{-- certificates --}}
-            <x-certificates/>
+            <x-certificates :certificates="$certificates"/>
         </div>
     </div>
 </div>

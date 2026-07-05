@@ -1,3 +1,5 @@
+@props(['certificates'])
+
 <div class="space-y-1.5 rounded-md border border-accent/5 px-5 py-3">
     {{-- header --}}
     <div class="flex justify-between items-center">
@@ -9,20 +11,22 @@
     </div>
     {{-- content --}}
     <div class="space-y-3">
-        @foreach (array_slice(config('app.certificates'), 0, 3) as $index => $certificate)
+        @forelse ($certificates as $index => $certificate)
             {{-- card --}}
             <flux:card size="sm" class="text-sm py-2 px-3 hover:bg-accent/5">
                 <flux:modal.trigger name="{{ 'view-cert' . $index  }}">
                     {{-- cert name --}}
-                    <flux:heading level="3" class="text-sm! font-semibold!">{{ $certificate[0] }}</flux:heading>
+                    <flux:heading level="3" class="text-sm! font-semibold!">{{ $certificate->name }}</flux:heading>
                     {{-- company --}}
-                    <flux:text class="text-xs">{{ $certificate[1] }}</flux:text>
+                    <flux:text class="text-xs">{{ $certificate->platform }}</flux:text>
                 </flux:modal.trigger>
             </flux:card>
             {{-- modal --}}
             <flux:modal variant="bare" name="{{ 'view-cert' . $index  }}" class="w-full sm:p-4 sm:max-w-4xl" :closable="false">
-                <img src="{{ asset("$certificate[2]") }}" alt="Certificate" class="w-full h-auto rounded-sm">
+                <img src="{{ $certificate->image_url }}" alt="Certificate" class="w-full h-auto rounded-sm">
             </flux:modal>
-        @endforeach
+        @empty
+        <flux:text>-</flux:text>
+        @endforelse
     </div>
 </div>
