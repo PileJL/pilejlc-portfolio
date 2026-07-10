@@ -6,7 +6,7 @@
     'employmentType' => null
 ])
 
-<div class="flex justify-between pb-3 border-b border-zinc-100 dark:border-zinc-800">
+<div {{ $attributes->merge(['class' => 'flex justify-between p-2 -mx-2 rounded-lg transition duration-150 ease-in-out']) }} >
     {{-- title and company --}}
     <div>
         {{-- title --}}

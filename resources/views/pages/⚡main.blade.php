@@ -29,7 +29,7 @@ new class extends Component
         {{-- left side --}}
         <div class="flex flex-col gap-2 w-full md:w-3/5">
             {{-- about --}}
-            <x-about :about="$personalInfo->about"/>
+            <x-about :about="$personalInfo?->about"/>
             {{-- teck stack --}}
             <x-tech-stack/>
             {{-- recent projects --}}

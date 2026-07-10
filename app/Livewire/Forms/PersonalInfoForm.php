@@ -14,6 +14,7 @@ class PersonalInfoForm extends Form
 
     #[Validate('image|max:10240')]
     public $display_pic_url;
+    public ?string $display_pic_public_id = null;
 
     #[Validate('required|string|max:255')]
     public ?string $name;
@@ -31,6 +32,7 @@ class PersonalInfoForm extends Form
     {
         $this->personalInfo = $personalInfo;
         $this->display_pic_url = $personalInfo?->display_pic_url;
+        $this->display_pic_public_id = $personalInfo?->display_pic_public_id;
         $this->name = $personalInfo?->name;
         $this->location = $personalInfo?->location;
         $this->job_title = $personalInfo?->job_title;

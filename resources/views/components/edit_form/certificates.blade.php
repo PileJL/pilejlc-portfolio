@@ -24,7 +24,7 @@
             <flux:button class="w-full sm:w-30" variant="primary" type="submit">Add</flux:button>
         </div>
     </form>
-    {{-- existine certs container --}}
+    {{-- existing certs container --}}
     <div class="space-y-2">
         {{-- header --}}
         <flux:heading class="text-lg font-semibold!">Existing Certificates</flux:heading>
@@ -72,7 +72,7 @@
                                     <flux:button size="sm" variant="ghost">Cancel</flux:button>
                                 </flux:modal.close>
                                 {{-- delete --}}
-                                <flux:button size="sm" wire:click="deleteCert({{ $cert->id }})" variant="danger">Delete</flux:button>
+                                <flux:button size="sm" wire:click="deleteCert({{ $cert->id }}, '{{ $cert->image_public_id }}')" variant="danger">Delete</flux:button>
                             </div>
                         </div>
                     </flux:modal>

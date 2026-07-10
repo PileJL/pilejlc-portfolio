@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('employment_type');
             $table->string('company_website')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

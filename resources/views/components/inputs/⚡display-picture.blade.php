@@ -19,9 +19,20 @@ new class extends Component
 
     public function updatedPersonalInfoFormDisplayPicUrl()
     {
-        $url = Cloudinary::upload($this->personalInfoForm->display_pic_url->getRealPath())->getSecurePath();
-        $this->personalInfoForm->update('display_pic_url', $url);
+        // if a pic already exists, delete first before replacing
+        if ($this->personalInfoForm && $this->personalInfoForm->display_pic_public_id) Cloudinary::destroy($this->personalInfoForm->display_pic_public_id);
+        // store pic to cloudinary
+        $result = Cloudinary::upload($this->personalInfoForm->display_pic_url->getRealPath());
+        $url = $result->getSecurePath();
+        $publicId = $result->getPublicId();
+        // store cloudinary image deets to DB
+        $this->personalInfoForm->personalInfo->update([
+            'display_pic_url' => $url, 
+            'display_pic_public_id' => $publicId
+        ]);
+        // asign cloudinary deets to personalInfoForm attrs
         $this->personalInfoForm->display_pic_url = $url;
+        $this->personalInfoForm->display_pic_public_id = $publicId;
     }
 };
 ?>
