@@ -3,16 +3,19 @@
 use Livewire\Component;
 use App\Models\PersonalInfo;
 use App\Models\Certificate;
+use App\Models\Experience;
 
 new class extends Component
 {
     public ?PersonalInfo $personalInfo;
     public $certificates;
+    public $experiences;
 
     public function mount()
     {
         $this->personalInfo = PersonalInfo::first();
         $this->certificates = Certificate::all();
+        $this->experiences = Experience::all();
     }
 };
 ?>
@@ -40,7 +43,7 @@ new class extends Component
         {{-- right side --}}
         <div class="flex flex-col gap-2 w-full md:w-2/5">
             {{-- experience --}}
-            <x-experience/>
+            <x-experience :experiences="$experiences"/>
             {{-- certificates --}}
             <x-certificates :certificates="$certificates"/>
         </div>

@@ -6,7 +6,7 @@
     {{-- heading --}}
     <flux:heading class="text-xl font-extrabold!">Experiences</flux:heading>
     <form class="space-y-4" wire:submit="saveExp">
-        <div class="flex flex-col sm:flex-row gap-4 w-full pl-1 sm:items-center">
+        <div class="flex flex-col md:flex-row gap-4 w-full pl-1 md:items-center">
             {{-- job title field --}}
             <div class="flex-1">
                 <flux:input wire:model="job_title" placeholder="Chief Executive Officer" type="text" label="Job Title" />
@@ -30,7 +30,7 @@
         </div>
         <div class="space-y-4">
             {{-- description --}}
-            <flux:textarea wire:model.live="description" label="Description" placeholder="Description..." />
+            <flux:textarea wire:model="description" label="Description" placeholder="Description..." />
             {{-- add button --}}
             <div class="flex-1 sm:flex-0 sm:self-end">
                 <flux:button class="w-full" variant="primary" type="submit">Add</flux:button>
